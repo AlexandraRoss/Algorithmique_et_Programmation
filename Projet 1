@@ -55,7 +55,8 @@ def minimum(l):
     return min
     
 #Moyennne
-def moyenne(l)
+def moyenne(l):
+    moyen=0
     n=len(l)
     for x in l:
          moyen+=x
