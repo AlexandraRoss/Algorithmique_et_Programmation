@@ -84,28 +84,47 @@ plt.plot(b,a)
 
 plt.show()
 
+def sep_reduite():
+"""Expliquée dans la partie 2 du projet et utilisée dans la SecondePartie_VersionFinale"""
+    A,B=[],[]
+    for i in range (len(df)):
+        if df.id[i]==k:
+            A.append(legende()[i])
+            B.append(df.sent_at[i])
+    return A,B
+
+
 ##Afficher les valeurs
-def maximum(l):
-   max=l[0]
-   for i in range (1,len(l)):
-       if l[i] >= max:
-           max=l[i]
-   return max
+def max():
+	L=sep_reduite()[0]
+	T=sep_redute()[1]
+	max=L[0]
+	k=0
+	for i in range(1,len(L)):
+		if L[i]>max:
+			max=L[i]
+			k=i
+	return max,T[k]
 
-def minimum(l):
-   min=l[0]
-    for i in range (1,len(l)):
-       if l[i] <= min:
-           min=l[i]
-    return min
+def min():
+	L=sep_reduite()[0]
+	T=sep_reduite()[1]
+	min=L[0]
+	k=0
+	for i in range(1,len(L)):
+		if L[i]<min:
+			min=L[i]
+			k=i
+	return min,T[k]
 
-def moyenne(l):
-    moyen=0
-    n=len(l)
-    for x in l:
-        moyen+=x
-        moyen=moyen/n
-    return moyen
+def moyenne():
+	l=sep_reduite()[0]
+	moyen=0
+	n=len(l)
+	for x in l:
+		moyen=moyen+x
+		moyen=moyen/n
+	return moyen
 
 def mediane(l):
     l=quickSort(l)
@@ -129,6 +148,30 @@ def variance(l):
 def ecart_type(l):
     var=variance(l)
     return var**(1/2)
+
+def courbe():
+	m=moyenne()
+	X=[]
+	L=sep_reduite()[0]
+	for i in range(len(L)):
+		X.append(m)
+	return X
+
+a=np.array(sep11()[0])
+b=np.array(sep11()[1])
+plt.plot(b,a)
+
+c=np.array(courbe())
+x=min()[0]
+y=min()[1]
+q=max()[0]
+r=max()[1]
+plt.plot(y,x,marker="o", color="red",label='minimum')
+plt.plot(r,q,marker="o", color="green",label='maximum')
+plt.plot(b,c,label='moyenne')
+plt.legend()
+plt.show() 
+
 
 def partition(arr, bas, haut):
     i = (bas-1)
