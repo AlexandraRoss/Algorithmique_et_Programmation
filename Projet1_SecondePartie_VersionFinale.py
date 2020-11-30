@@ -15,7 +15,7 @@ def legende():
     elif v==2:
         return df.lum
     elif v==3:
-        return df.CO2
+        return df.co2
     elif v==4:
         return df.humidity
     else:
