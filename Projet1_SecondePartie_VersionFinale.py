@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-df =pd.read_csv((r'/Users/alexandraross/Desktop/post-32566-EIVP_KM.csv'),sep=';')
+df =pd.read_csv((r'post-32566-EIVP_KM.csv'),sep=';')
 print(df)
 
 
